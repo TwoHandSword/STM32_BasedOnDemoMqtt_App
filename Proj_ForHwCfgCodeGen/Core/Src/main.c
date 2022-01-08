@@ -60,7 +60,7 @@
 
 
 #include "myTask.h"
-
+#include "tm_stm32f4_gps.h"
 
 
 extern void xPortSysTickHandler( void );
@@ -126,7 +126,10 @@ void Led_Blink(int period, int duty, int count);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t gpx_rxdata; // uart3 rx data
+
+//gpx_rxdata , GPS_Data are for GPS Module NEO-6M . Connected by UART3
+uint8_t gpx_rxdata;
+TM_GPS_Data_t GPS_Data;
 
 
 
@@ -171,6 +174,9 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
+
+
+  TM_GPS_Init(&GPS_Data);
 
   HAL_UART_Receive_IT(&huart3, &gpx_rxdata, 1);// Get gps Data
 
