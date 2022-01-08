@@ -629,7 +629,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(ES_WIFI_RESET_GPIO_Port, ES_WIFI_RESET_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, ES_WIFI_BOOT0_Pin|ES_WIFI_WAKE_UP_Pin|USER_LED2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, ES_WIFI_BOOT0_Pin|ES_WIFI_WAKE_UP_Pin|USER_LED2_Pin|DO_WarmerOn_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(SPBTLE_RF_SPI3_CSN_GPIO_Port, SPBTLE_RF_SPI3_CSN_Pin, GPIO_PIN_SET);
@@ -687,6 +687,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(SPBTLE_RF_SPI3_CSN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DO_WarmerOn_Pin */
+  GPIO_InitStruct.Pin = DO_WarmerOn_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(DO_WarmerOn_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : ES_WIFI_DATA_READY_Pin */
   GPIO_InitStruct.Pin = ES_WIFI_DATA_READY_Pin;

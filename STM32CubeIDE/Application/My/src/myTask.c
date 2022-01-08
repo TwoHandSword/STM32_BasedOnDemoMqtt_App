@@ -133,7 +133,7 @@ void myTask_1sec(void)
 
 			adc_start_conversion();
 
-			#if 1
+			#if 0
 			adcVal[0] = get_adc_value(1);
 			adcVal[1] = get_adc_value(2);
 
