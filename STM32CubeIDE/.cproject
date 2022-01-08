@@ -33,6 +33,7 @@
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.debuglevel.1048275166" name="Debug level" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.debuglevel" useByScannerDiscovery="false" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.debuglevel.value.g3" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.includepaths.724782826" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../../../../../../Middlewares/Third_Party/amazon-freertos/freertos_kernel/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/My_Cridential}&quot;"/>
 									<listOptionValue builtIn="false" value="../../config_files"/>
 									<listOptionValue builtIn="false" value="../"/>
 								</option>
@@ -53,6 +54,7 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths.1419539296" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../../../../../../Middlewares/Third_Party/amazon-freertos/libraries/abstractions/wifi/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/My_Cridential}&quot;"/>
 									<listOptionValue builtIn="false" value="../../Proj_ForHwCfgCodeGen/Core/Inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Middlewares/Third_Party/amazon-freertos/libraries/abstractions/posix/include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Middlewares/Third_Party/amazon-freertos/libraries/3rdparty/tinycbor"/>

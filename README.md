@@ -65,4 +65,19 @@ asw_demos/Src  =>    aws_demos\Proj_ForHwCfgCodeGen\Core\Src
 에 있는걸 가져와서 빌드하도록 구성해놨다는 거다.
 ppt 그림으로 좀 더 이해하기 쉽게 그려서 업로드하겠다.
 프로젝트구조설명.pptx <-참고
+
+22-01-08 오후3시52분
+BSW쪽에서
+Bv001_C1  aws iot thing의 이름/ End point / 와이파이 아이디 / 와이파이 비밀번호를 configure 관련 변경
+관련 Configure를 원래 aws_clientcredential.h 에서 하는데 이렇게하면 app 단에서 수정하기가 불편해서 #include "My_ClientCredential.h 라는 파일을 inlcude 하도록 하고, 그 안에서 YHS_MY_xxx  형태로 Define 하도록했다.
+해당 파일은 App 쪽에 추가될거고, 비밀번호와 연관돼있어서 App 쪽에서 git ignore 될 것이다.
+
+App에 aws_demos\STM32CubeIDE\Application\My_Cridential 에 My_ClientCredential.h 파일을 추가했다.
+여기에서 thing 이름, endpoint 와이파이아이디, 와이파이 비번 Configure 해줄 것이다. 근데 개인정보가 있어서 git에서는 ignore 했다.
+해당 파일에서 아래 부분을 정의해줘야한다.
+
+#define YHS_MY_ENDPOINT     	 ""
+#define YHS_MY_THING      		 ""
+#define YHS_MY_WIFI_SSID        ""
+#define YHS_MY_WIFI_PASSWORD    ""
 	

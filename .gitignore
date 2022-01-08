@@ -1,2 +1,4 @@
 STM32CubeIDE/Debug/
 STM32CubeIDE/PostBuild/
+STM32CubeIDE/Application/My_Cridential/My_ClicentCredential.h
+STM32CubeIDE/Application/My_Cridential/My_ClientCredential.h
