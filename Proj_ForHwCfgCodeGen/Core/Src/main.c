@@ -28,6 +28,7 @@
 #include <stdarg.h>
 #include "FreeRTOS.h"
 #include "string.h"   /* Console output */
+#include "task.h"
 
 /* Demo includes */
 #include "aws_demo.h"
@@ -36,8 +37,13 @@
 #include "iot_logging_task.h"
 #include "iot_wifi.h"
 #include "aws_clientcredential.h"
+#include "aws_customdemo_runner.h"
 /* WiFi driver includes. */
 #include "es_wifi_io.h"
+#include "es_wifi.h"
+
+/* Application version info. */
+#include "aws_application_version.h"
 
 /* Test accessories includes */
 #if !defined(MBEDTLS_CONFIG_FILE)
@@ -71,7 +77,7 @@ extern WIFIReturnCode_t WIFI_GetFirmwareVersion( uint8_t * pucBuffer );
 /* The SPI driver polls at a high priority. The logging task's priority must also
  * be high to be not be starved of CPU time. */
 #define mainLOGGING_TASK_PRIORITY                       ( configMAX_PRIORITIES - 1 )
-#define mainLOGGING_TASK_STACK_SIZE                     ( 100 )
+#define mainLOGGING_TASK_STACK_SIZE                     ( 450 )
 #define mainLOGGING_MESSAGE_QUEUE_LENGTH                ( 15 )
 /* USER CODE END PD */
 
@@ -614,7 +620,10 @@ void vApplicationDaemonTaskStartupHook( void )
             prvWifiConnect();
 
             /* Start demos. */
-            DEMO_RUNNER_RunDemos();
+
+            aws_custom_demo_run();
+
+           // DEMO_RUNNER_RunDemos();
 
             my_task_init();
 
