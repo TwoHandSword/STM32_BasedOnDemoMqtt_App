@@ -42,7 +42,7 @@
  *          CONFIG_HTTPS_ASYNC_UPLOAD_DEMO_ENABLED
  *
  *  These defines are used in iot_demo_runner.h for demo selection */
-#define CONFIG_OTA_UPDATE_DEMO_ENABLED
+#define CONFIG_MQTT_DEMO_ENABLED
 
 /* Default configuration for all demos. Individual demos can override these below */
 #define democonfigDEMO_STACKSIZE                          ( 1500 )
