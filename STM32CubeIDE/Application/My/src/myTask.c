@@ -8,7 +8,7 @@
 #include "platform/iot_threads.h"
 #include "aws_demo_config.h"
 #include "FreeRTOSConfig.h"
-
+#include "Warmer.h"
 
 void myTask_1ms(void);
 void myTask_100ms(void);
@@ -116,8 +116,10 @@ void myTask_1sec(void)
 			#if 0
 			cnt++;
 			configPRINTF(("1sec task is running : %d\n",cnt));
-
 			#endif
+
+			
+			Warmer_Control();
 
 
 		}
