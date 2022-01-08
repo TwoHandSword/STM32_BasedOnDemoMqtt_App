@@ -52,6 +52,11 @@
 #include "iot_config.h"
 #include "watchdogkicker.h"
 
+
+#include "myTask.h"
+
+
+
 extern void xPortSysTickHandler( void );
 extern WIFIReturnCode_t WIFI_GetFirmwareVersion( uint8_t * pucBuffer );
 /* USER CODE END Includes */
@@ -610,6 +615,11 @@ void vApplicationDaemonTaskStartupHook( void )
 
             /* Start demos. */
             DEMO_RUNNER_RunDemos();
+
+            my_task_init();
+
+
+
         }
     }
     else
