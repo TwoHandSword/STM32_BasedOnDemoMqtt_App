@@ -12,6 +12,8 @@
 #include "main.h"
 #include "tm_stm32f4_gps.h"
 
+extern ADC_HandleTypeDef hadc1;
+
 void myTask_1ms(void);
 void myTask_100ms(void);
 void myTask_1sec(void);
@@ -110,6 +112,8 @@ void myTask_1sec(void)
 	portTickType xLastWakeTime;
 	portTickType xFrequency = 1000;
 
+	uint32_t adcVal[2];
+
 	xLastWakeTime = xTaskGetTickCount();
 
 	configPRINTF( ( "MyTask 1sec start .\r\n" ) );
@@ -123,13 +127,18 @@ void myTask_1sec(void)
 			#if 0
 			cnt++;
 			configPRINTF(("1sec task is running : %d\n",cnt));
+
 			#endif
 
-			
+			#if 1
+			HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adcVal, 2);
+			configPRINTF( ("adc value 1 : %d \n adc value 2: %d \n",adcVal[0],adcVal[1]) );
+			#endif
+
 			Warmer_Control();
 			
 			
-			#if 1
+			#if 0
 			configPRINT_STRING("GPGGA statement:\n");
 			configPRINTF( ("-Latitude: %d.%d\n", GPS_Floa_la.Integer, GPS_Floa_la.Decimal) );
 			configPRINTF( ("-Longitude: %d.%d\n", GPS_Floa_lon.Integer, GPS_Floa_lon.Decimal) );
