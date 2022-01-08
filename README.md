@@ -1,3 +1,6 @@
+필독) 이슈 No.2
+
+
 STM32CubeExpansion_Cloud_AWS_V2.0.0 기반의 프로젝트
 
 프로젝트 원본은 STM 홈페이지에서 다운로드 가능 https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#tools-software
