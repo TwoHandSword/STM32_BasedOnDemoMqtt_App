@@ -11,8 +11,9 @@
 #include "Warmer.h"
 #include "main.h"
 #include "tm_stm32f4_gps.h"
+#include "AdcHal.h"
 
-extern ADC_HandleTypeDef hadc1;
+
 
 void myTask_1ms(void);
 void myTask_100ms(void);
@@ -130,9 +131,15 @@ void myTask_1sec(void)
 
 			#endif
 
+			adc_start_conversion();
+
 			#if 1
-			HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adcVal, 2);
-			configPRINTF( ("adc value 1 : %d \n adc value 2: %d \n",adcVal[0],adcVal[1]) );
+			adcVal[0] = get_adc_value(1);
+			adcVal[1] = get_adc_value(2);
+
+			configPRINTF( ("adc value 1 : %d\n",adcVal[0]) );
+			configPRINTF( ("adc value 2 : %d\n",adcVal[1]) );
+
 			#endif
 
 			Warmer_Control();

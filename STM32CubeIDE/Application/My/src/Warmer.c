@@ -5,6 +5,7 @@
  *      Author: yg
  */
 
+#include "AdcHal.h"
 #include "Warmer.h"
 
 
@@ -17,11 +18,18 @@ static warmer_oper g_operation;
 
 float Warmer_GetTemp()
 {
-	float temp=0;
+	float temperature = 0;
+	float temp_sen_volt=0;
+
 
 	/*temp function will be implemented    */
 
-	return temp;
+	#if 1
+	temp_sen_volt = get_adc_volt(1);
+	temperature = (temp_sen_volt - 0.5) * 100;
+	#endif
+
+	return temperature;
 
 }
 
@@ -35,6 +43,8 @@ void Warmer_Control()
 {
 	float temp=0;
 
+	temp=Warmer_GetTemp();
+
 	if( g_operation == warmer_off)
 	{
 
@@ -43,7 +53,6 @@ void Warmer_Control()
 	}
 	else if(g_operation == warmer_on_1)
 	{
-		temp=Warmer_GetTemp();
 
 		if(temp>warmer_on_1)
 		{
@@ -57,7 +66,6 @@ void Warmer_Control()
 	}
 	else if(g_operation == warmer_on_2)
 	{
-		temp=Warmer_GetTemp();
 
 		if(temp>warmer_on_2)
 		{
