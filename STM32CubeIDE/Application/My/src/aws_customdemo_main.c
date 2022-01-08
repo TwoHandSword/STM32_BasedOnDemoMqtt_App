@@ -85,6 +85,8 @@ int aws_customdemo_main(bool awsIotMqttMode, const char * pIdentifier,
 
         init_telemetry_pub_queue();
 
+
+#if 0  //temporary for test convenience
         Iot_CreateDetachedThread(_sensorDataPublisherTask, NULL,
         democonfigDEMO_PRIORITY,
                                  democonfigDEMO_STACKSIZE);
@@ -92,6 +94,7 @@ int aws_customdemo_main(bool awsIotMqttMode, const char * pIdentifier,
         Iot_CreateDetachedThread(onboardSensorReaderTask, NULL,
         democonfigDEMO_PRIORITY,
                                  democonfigDEMO_STACKSIZE);
+#endif
 
        while (1)
         {
