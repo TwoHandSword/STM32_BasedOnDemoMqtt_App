@@ -1,33 +1,39 @@
-필독) 이슈 No.2
 
+## 필독) 이슈 No.2
 
 STM32CubeExpansion_Cloud_AWS_V2.0.0 기반의 프로젝트
 
 프로젝트 원본은 STM 홈페이지에서 다운로드 가능 https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#tools-software
 
-1. 이 저장소는 데모 프로젝트의 모든 파일이 아니라 데모 프로젝트 내의 Applications\Cloud\asw_demos 폴더만 관리한다.
-2. 이 폴더만 가지고는 빌드가 되지 않으므로, https://github.com/TwoHandSword/STM32_BasedOnDemoMqtt_Bsw 저장소 파일을 내려받아서 같이 빌드해야한다.
-3. https://github.com/TwoHandSword/STM32_BasedOnDemoMqtt_Bsw -> 이 저장소는 C:\ 에 설치하고
-4. 이 저장소는 C:\STM32CubeExpansion_Cloud_AWS_V2.0.0\Projects\B-L4S5I-IOT01A\Applications\Cloud\asw_demos에 설치해서 빌드해야한다.
-5. 이 저장소 커밋할때 버전관리가 Bv001_Av001_C1 이런식으로 네이밍 할 건데,  Bv의 의미는 STM32_BasedOnDemoMqtt_Bsw 저장소의 SW 버전을 의미하고
-    Av는 본 저장소의 SW 버전을 의미한다.  C는 코드변경은 아닌데 내용변경등을 나타내기 위함이다.(Comment약자)
+1. 이 저장소는 데모 프로젝트의 모든 파일이 아니라 데모 프로젝트 내의 Applications\Cloud\asw_demos 폴더만 관리한다. <br>
+2. 이 폴더만 가지고는 빌드가 되지 않으므로, https://github.com/TwoHandSword/STM32_BasedOnDemoMqtt_Bsw 저장소 파일을 내려받아서 같이 빌드해야한다. <br>
+3. https://github.com/TwoHandSword/STM32_BasedOnDemoMqtt_Bsw -> 이 저장소는 C:\ 에 설치하고 <br>
+4. 이 저장소는 C:\STM32CubeExpansion_Cloud_AWS_V2.0.0\Projects\B-L4S5I-IOT01A\Applications\Cloud\asw_demos에 설치해서 빌드해야한다. <br>
+5. 이 저장소 커밋할때 버전관리가 Bv001_Av001_C1 이런식으로 네이밍 할 건데,  Bv의 의미는 STM32_BasedOnDemoMqtt_Bsw 저장소의 SW 버전을 의미하고 <br>
+    Av는 본 저장소의 SW 버전을 의미한다.  C는 코드변경은 아닌데 내용변경등을 나타내기 위함이다.(Comment약자) <br>
 	
-#0
+# precondition 1
 Projects\B-L4S5I-IOT01A\Applications\Cloud\aws_demos\config_files 경로에 있는
-aws_demo_config.h 파일에서 CONFIG_XXX_DEMO_ENABLED 라는 형태의 10개의 #define 문을 사용해서 해당 프로젝트의 동작 모드를 결정할 수 있다.(한번에 1개 모드만 Enable해야함)
-이 프로젝트는 10개의 데모 동작 중에서 CONFIG_MQTT_DEMO_ENABLED 모드를 Base로 하여 개발하기 시작함
+<br><br>
+aws_demo_config.h 파일에서 CONFIG_XXX_DEMO_ENABLED 라는 형태의 10개의 #define 문을 사용해서 해당 프로젝트의 동작 모드를 결정할 수 있다.(한번에 1개 모드만 Enable해야함) 
+<br><br>
+이 프로젝트는 10개의 데모 동작 중에서 CONFIG_MQTT_DEMO_ENABLED 모드를 Base로 하여 개발하기 시작함 
+<br>
 
-#1
-Middlewares/Third_Party/amazon-freetos/demos/include 경로에 있는
-aws_clientcredential.h  파일에서 
-wifi ssid, password, security type , aws-core REST API , Thing name 정의해서 사용한다.
-실제 코드에서 사용하는 Define 문의 이름은 아래와 같음
-clientcredentialWIFI_SSID , clientcredentialWIFI_PASSWORD, clientcredentialWIFI_SECURITY, clientcredentialMQTT_BROKER_ENDPOINT , clientcredentialIOT_THING_NAME
+# precondition 2
+Middlewares/Third_Party/amazon-freetos/demos/include 경로에 있는 
+<br>
+aws_clientcredential.h  파일에서 wifi ssid, password, security type , aws-core REST API , Thing name 정의해서 사용한다. 
+<br>
+실제 코드에서 사용하는 Define 문의 이름은 아래와 같음 
+<br> <br>
+clientcredentialWIFI_SSID , clientcredentialWIFI_PASSWORD, clientcredentialWIFI_SECURITY, clientcredentialMQTT_BROKER_ENDPOINT, clientcredentialIOT_THING_NAME 
+<br>
 
 위 코드는 STM32CubeExpansion_Cloud_AWS_V2.0.0 에서 다운로드 받은 SW안에 포함되어있고, 여기 Repository에 이 코드는 올라가지 않음
 
 
-#2 21.12.18
+# 2 21.12.18
 Initial code Upload
 **유의사항 1** : STM32CubeExpansion_Cloud_AWS_V2.0.0 파일 ST 홈페이지에서 다운로드 한 후 압축 풀어서 코드 놔두는 경로를 반드시 C드라이브에 바로 푼다
     C:\STM32CubeExpansion_Cloud_AWS_V2.0.0
