@@ -60,6 +60,8 @@ extern int aws_custom_mqttlib_initialise(
 
 void init_telemetry_pub_queue();
 
+int mqtt_conection_done=0;
+
 /*
 * Main function for the custom demo runner
 */
@@ -79,6 +81,7 @@ int aws_customdemo_main(bool awsIotMqttMode, const char * pIdentifier,
     if (status == EXIT_SUCCESS)
     {
         IotLogInfo("AWS Custom Demo Initialization is Successful");
+        mqtt_conection_done=1;
         //Start the sensor polling Task here. In production code, these two must be done asynchronously.
         // As the device logic should function independent of network connectivity
         // To simplify the demo, these are done sequentially currently

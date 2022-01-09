@@ -16,6 +16,6 @@ typedef enum warmer_oper{
 
 void Warmer_SetOper(warmer_oper operation);
 void Warmer_Control(void);
-
+float Warmer_GetTemp();
 
 #endif /* APPLICATION_MY_INC_WARMER_H_ */

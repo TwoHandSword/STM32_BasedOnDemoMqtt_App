@@ -38,6 +38,8 @@ struct sensorDataMsg
     char *pSensorMsg;
 };
 
+void prvSensorsInit(void);
+void OnBoardSensorRead(void);
 void  sendToTelemetryQueue(unsigned char *pTopicName, char *pMsg, int msglen);
 
 #endif /* APPLICATION_CODE_APP_ST_SENSORDATA_COLLECTOR_H_ */

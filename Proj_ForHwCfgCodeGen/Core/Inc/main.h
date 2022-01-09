@@ -83,6 +83,8 @@ void Error_Handler(void);
 #define SPI3_MOSI_GPIO_Port GPIOC
 #define DO_WarmerOn_Pin GPIO_PIN_8
 #define DO_WarmerOn_GPIO_Port GPIOB
+#define START_LED_Pin GPIO_PIN_9
+#define START_LED_GPIO_Port GPIOB
 #define ES_WIFI_NSS_Pin GPIO_PIN_0
 #define ES_WIFI_NSS_GPIO_Port GPIOE
 #define ES_WIFI_DATA_READY_Pin GPIO_PIN_1

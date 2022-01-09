@@ -52,7 +52,7 @@ int SetupSingleShot(RangingConfig_e rangingConfig);
 float BSP_Proximity_Read();
 void Sensor_SetNewRange(VL53L0X_Dev_t *pDev, VL53L0X_RangingMeasurementData_t *pRange);
 
-static void prvSensorsInit(void) {
+void prvSensorsInit(void) {
   
   if (HSENSOR_OK != BSP_HSENSOR_Init()) {
     Error_Handler();
@@ -82,6 +82,21 @@ static void prvSensorsInit(void) {
     Error_Handler();
   }
 }
+
+float onboard_TEMPERATURE_Value;
+float onboard_HUMIDITY_Value;
+int16_t onboard_ACC_Value[3];
+
+
+void OnBoardSensorRead(void)
+{
+	onboard_TEMPERATURE_Value = BSP_TSENSOR_ReadTemp();
+	onboard_HUMIDITY_Value = BSP_HSENSOR_ReadHumidity();
+	BSP_ACCELERO_AccGetXYZ(onboard_ACC_Value);
+
+}
+
+
 
 /* This task read the sensor data from the STM32 target and publishes to the telemetry queue
  *

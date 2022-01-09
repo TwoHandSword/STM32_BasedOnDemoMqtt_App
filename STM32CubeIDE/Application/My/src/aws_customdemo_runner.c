@@ -351,8 +351,8 @@ int aws_custom_mqttlib_initialise(
     
     const char * pTopics[ TOPIC_FILTER_COUNT ] =
     {
-        IOT_DEMO_MQTT_TOPIC_PREFIX "/topic/1",
-        IOT_DEMO_MQTT_TOPIC_PREFIX "/topic/2",
+    	IOT_DEMO_MQTT_TOPIC_PREFIX "/topic/1",
+		IOT_DEMO_MQTT_TOPIC_PREFIX "/topic/2",
         IOT_DEMO_MQTT_TOPIC_PREFIX "/topic/3",
         IOT_DEMO_MQTT_TOPIC_PREFIX "/topic/4",
     };
